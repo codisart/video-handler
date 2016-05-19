@@ -1,0 +1,27 @@
+{
+  "name": "video-handler",
+  "version": "0.1.0",
+  "description": "file the video files listed",
+  "main": "index.js",
+  "bin": {
+    "video-handler": "bin/handler.js"
+  },
+  "preferGlobal": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codisart/video-handler.git"
+  },
+  "keywords": [
+    "post",
+    "processing"
+  ],
+  "author": "codisart",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codisart/video-handler/issues"
+  },
+  "homepage": "https://github.com/codisart/video-handler#readme"
+}
