@@ -1,13 +1,14 @@
 
 
 function Episode() {
-    this.season;
-    this.episode;
-    this.showTitle;
+    this.season     = null;
+    this.episode    = null;
+    this.showTitle  = null;
+    this.filePath   = null;
 }
 
 function notUndefined(element) {
-  return element != undefined;
+  return element !== undefined;
 }
 
 var identifyEpisode = function(filename) {
@@ -16,7 +17,8 @@ var identifyEpisode = function(filename) {
     var regexSeparator  = /[ (_.]+/;
     var regexSXXEXX     = /S(?:0(\d)|(\d{2}))E(?:0(\d)|(\d{2}))/;
     var regex3Numbers   = /(\d)(?:0(\d)|(\d{2}))/;
-
+    
+    /* jshint ignore:start */
     var re = new RegExp(
             '(?:'
         +       '^(?:\\[.+\\][ (_.]+)?(.+)'
@@ -40,6 +42,7 @@ var identifyEpisode = function(filename) {
         +   '(?:$|[ (_.]+)',
         'g'
     );
+    /* jshint ignore:end */
 
     var matches = re.exec(filename);
 
@@ -59,7 +62,7 @@ var identifyEpisode = function(filename) {
     }
 
     return matches;
-}
+};
 
 
 // Allows us to call this function from outside of the library file.
