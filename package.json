@@ -1,7 +1,7 @@
 {
   "name": "video-handler",
   "version": "0.1.0",
-  "description": "file the video files listed",
+  "description": "process the video files listed, identify and move them",
   "main": "index.js",
   "bin": {
     "video-handler": "bin/handler.js"
