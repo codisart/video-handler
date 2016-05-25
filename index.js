@@ -1,4 +1,4 @@
-
+var path = require('path');
 
 function Episode() {
     this.season     = null;
@@ -17,7 +17,7 @@ var identifyEpisode = function(filename) {
     var regexSeparator  = /[ (_.]+/;
     var regexSXXEXX     = /S(?:0(\d)|(\d{2}))E(?:0(\d)|(\d{2}))/;
     var regex3Numbers   = /(\d)(?:0(\d)|(\d{2}))/;
-    
+
     /* jshint ignore:start */
     var re = new RegExp(
             '(?:'
@@ -64,7 +64,21 @@ var identifyEpisode = function(filename) {
     return matches;
 };
 
+var isVideoFile = function(filePath) {
+    var validFileExtensions = [
+        '.mkv',
+        '.avi',
+    ]
+    return validFileExtensions.indexOf(path.extname(filePath)) !== -1;
+}
 
-// Allows us to call this function from outside of the library file.
-// Without this, the function would be private to this file.
+var processFile = function(filePath) {
+    var episode;
+    if (episode = identifyEpisode(filePath)) {
+        console.log('moving file to ' + episode.showTitle + '/ '+ episode.season + '/' +  episode.episode);
+    }
+}
+
 exports.identifyEpisode = identifyEpisode;
+exports.isVideoFile     = isVideoFile;
+exports.processFile     = processFile;
