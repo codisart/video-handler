@@ -72,11 +72,8 @@ var isVideoFile = function(filePath) {
     return validFileExtensions.indexOf(path.extname(filePath)) !== -1;
 }
 
-var processFile = function(filePath) {
-    var episode;
-    if (episode = identifyEpisode(filePath)) {
-        console.log('moving file to ' + episode.showTitle + '/ '+ episode.season + '/' +  episode.episode);
-    }
+var processFile = function(episode) {
+    console.log('moving file to ' + episode.showTitle + '/ '+ episode.season + '/' +  episode.episode);
 }
 
 exports.identifyEpisode = identifyEpisode;
