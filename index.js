@@ -81,6 +81,11 @@ function hasValidExtension(filePath, validFileExtensions) {
     return validFileExtensions.indexOf(path.extname(filePath)) !== -1;
 }
 
+var deleteDirectory = function() {
+	console.log('delete all other files');
+}
+
 exports.identifyEpisode = identifyEpisode;
 exports.isVideoFile     = isVideoFile;
 exports.processFile     = processFile;
+exports.deleteDirectory = deleteDirectory;
