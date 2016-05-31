@@ -11,7 +11,7 @@ function existDirectory(path) {
 			return path;
 		}
 		else {
-			return false
+			return false;
 		}
 	}
 	catch (e) {
@@ -25,7 +25,7 @@ function existFile(path) {
 			return path;
 		}
 		else {
-			return false
+			return false;
 		}
 	}
 	catch (e) {

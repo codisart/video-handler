@@ -71,11 +71,11 @@ var identifyEpisode = function(filename) {
 
 var isVideoFile = function(filePath) {
     return hasValidExtension(filePath, videoExtensions);
-}
+};
 
 var processFile = function(episode) {
     console.log('moving file to ' + episode.showTitle + '/ '+ episode.season + '/' +  episode.episode);
-}
+};
 
 function hasValidExtension(filePath, validFileExtensions) {
     return validFileExtensions.indexOf(path.extname(filePath)) !== -1;
@@ -83,7 +83,7 @@ function hasValidExtension(filePath, validFileExtensions) {
 
 var deleteDirectory = function() {
 	console.log('delete all other files');
-}
+};
 
 exports.identifyEpisode = identifyEpisode;
 exports.isVideoFile     = isVideoFile;
