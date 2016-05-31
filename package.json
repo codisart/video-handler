@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/codisart/video-handler/issues"
   },
-  "homepage": "https://github.com/codisart/video-handler#readme"
+  "homepage": "https://github.com/codisart/video-handler#readme",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
 }
