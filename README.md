@@ -1,10 +1,14 @@
 # video-handler
 
+Liste des parametres pour µTorrent
 
-If not parameter =>
-	Check if config file exist and handle all files in the directories listed
-
-If parameter =>
-	If is existing dir and handle all files in the dir
-
-	If is existing file and handle it
+	  %F - Name of downloaded file (for single file torrents)
+	  %D - Directory where files are saved
+	  %N - Title of torrent
+	  %P - Previous state of torrent
+	  %L - Label
+	  %T - Tracker
+	  %M - Status message string (same as status column)
+	  %I - hex encoded info-hash
+	  %S - State of torrent
+	  %K - kind of torrent (single|multi)
