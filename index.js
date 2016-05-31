@@ -1,5 +1,10 @@
 var path = require('path');
 
+var videoExtensions = [
+    '.mkv',
+    '.avi',
+];
+
 function Episode() {
     this.season     = null;
     this.episode    = null;
@@ -65,15 +70,15 @@ var identifyEpisode = function(filename) {
 };
 
 var isVideoFile = function(filePath) {
-    var validFileExtensions = [
-        '.mkv',
-        '.avi',
-    ]
-    return validFileExtensions.indexOf(path.extname(filePath)) !== -1;
+    return hasValidExtension(filePath, videoExtensions);
 }
 
 var processFile = function(episode) {
     console.log('moving file to ' + episode.showTitle + '/ '+ episode.season + '/' +  episode.episode);
+}
+
+function hasValidExtension(filePath, validFileExtensions) {
+    return validFileExtensions.indexOf(path.extname(filePath)) !== -1;
 }
 
 exports.identifyEpisode = identifyEpisode;
