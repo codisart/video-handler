@@ -16,13 +16,13 @@ program
 
 
 if(!program.kind) {
-	console.log('We need to know the kind of torrent downloading');
+	console.log('Error: We need to know the kind of the downloaded torrent');
 	process.exit(1);
 }
 
 if (program.kind === 'single') {
 	if(!program.file || program.directory.length <= 0) {
-		console.log('The filepath doesn\'t not exist');
+		console.log('Error: The file is not valid; neither a video nor a subtitle.');
 		process.exit(1);
 	}
 	var files = program.file;
@@ -30,7 +30,7 @@ if (program.kind === 'single') {
 
 if (program.kind === 'multi') {
 	if(!program.directory || program.directory.length <= 0) {
-		console.log('The directory doesn\'t not exist');
+		console.log('Error: The directory is not valid; do not exist or do not contains valid files.');
 		process.exit(1);
 	}
 	var files = program.directory;
@@ -43,7 +43,7 @@ for (var index in files) {
 	var episode = lib.identifyEpisode(filePath);
 
 	if (!episode) {
-		console.log('We could not identify the tv show the season or the episode');
+		console.log('Error: We could not identify this file. - ' + filePath);
 		continue;
 	}
 
@@ -52,5 +52,6 @@ for (var index in files) {
 }
 
 if (wasAtLeastOneFileProcessed) {
-	console.log('delete all other files');
+	// TODO: implements the clear action
+	console.log('Tmp: We can delete all the downloaded files.');
 }
