@@ -21,19 +21,16 @@ if(!program.kind) {
 }
 
 if (program.kind === 'single') {
-	if(!program.file || program.directory.length <= 0) {
-		console.log('Error: The file is not valid; neither a video nor a subtitle.');
-		process.exit(1);
-	}
+	var errorMessage = 'Error: The file is not valid; neither a video nor a subtitle.';
 	var files = program.file;
+} else if (program.kind === 'multi') {
+	var errorMessage = 'Error: The directory is not valid; do not exist or do not contains valid files.';
+	var files = program.directory;
 }
 
-if (program.kind === 'multi') {
-	if(!program.directory || program.directory.length <= 0) {
-		console.log('Error: The directory is not valid; do not exist or do not contains valid files.');
-		process.exit(1);
-	}
-	var files = program.directory;
+if(!files || files.length <= 0) {
+	console.log(errorMessage);
+	process.exit(1);
 }
 
 var wasAtLeastOneFileProcessed = false;
