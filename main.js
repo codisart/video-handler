@@ -40,6 +40,7 @@ program
 	.option('-F, --file <n>', 'An valid file path', existFile, false)
 	.parse(process.argv);
 
+
 if(!program.kind) {
 	console.log('We need to know the kind of torrent downloading');
 	process.exit(1);
@@ -51,18 +52,7 @@ if (program.kind === 'single') {
 		process.exit(1);
 	}
 
-	if (!lib.isVideoFile(program.file)) {
-		console.log('This is not a video file');
-		process.exit(0);
-	}
-
-	var episode = lib.identifyEpisode(program.file);
-	if (!episode) {
-		console.log('We could not identify the tv show the season or the episode');
-		process.exit(0);
-	}
-
-	lib.processFile(episode);
+	var files = [program.file];
 }
 
 if (program.kind === 'multi') {
@@ -72,7 +62,9 @@ if (program.kind === 'multi') {
 	}
 
 	var files = FileSystem.readdirSync(program.directory);
+}
 
+if (files.length > 0) {	
 	var wasAtLeastOneFileProcessed = false;
 	for (var index in files) {
 		var filePath = files[index];
