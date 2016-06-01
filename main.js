@@ -5,13 +5,13 @@ var FileSystem 	= require('fs');
 var program	= require('commander');
 var lib 	= require('./lib/identifier.js');
 var mover 	= require('./lib/mover.js');
-var fileValidator	= require('./lib/file/validator.js');
+var validator	= require('./lib/file/validator.js');
 
 program
 	.version('0.0.2')
 	.option('-K, --kind <n>', 'The kind of torrent', /^(single|multi)$/i, false)
-	.option('-D, --directory <n>', 'An valid directory path', fileValidator.existDirectory, false)
-	.option('-F, --file <n>', 'An valid file path', fileValidator.existFile, false)
+	.option('-D, --directory <n>', 'An valid directory path', validator.existDirectory, false)
+	.option('-F, --file <n>', 'An valid file path', validator.isMediaFile, false)
 	.parse(process.argv);
 
 
@@ -26,7 +26,7 @@ if (program.kind === 'single') {
 		process.exit(1);
 	}
 
-	var files = [program.file];
+	var files = program.file;
 }
 
 if (program.kind === 'multi') {
