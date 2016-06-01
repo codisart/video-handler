@@ -4,6 +4,7 @@ var FileSystem 	= require('fs');
 
 var program	= require('commander');
 var lib 	= require('./lib/identifier.js');
+var mover 	= require('./lib/mover.js');
 
 function existDirectory(path) {
 	try {
@@ -64,25 +65,23 @@ if (program.kind === 'multi') {
 	var files = FileSystem.readdirSync(program.directory);
 }
 
-if (files.length > 0) {	
+if (files.length > 0) {
 	var wasAtLeastOneFileProcessed = false;
 	for (var index in files) {
 		var filePath = files[index];
 
-		if (lib.isVideoFile(filePath)) {
-			var episode = lib.identifyEpisode(filePath);
-			if (!episode) {
-				console.log('We could not identify the tv show the season or the episode');
-				continue;
-			}
+		var episode = lib.identifyEpisode(filePath);
 
-			lib.processFile(episode);
-			wasAtLeastOneFileProcessed = true;
-			// files.splice(index, 1);
+		if (!episode) {
+			console.log('We could not identify the tv show the season or the episode');
+			continue;
 		}
+
+		mover.store(episode);
+		wasAtLeastOneFileProcessed = true;
 	}
 
 	if (wasAtLeastOneFileProcessed) {
-		lib.deleteDirectory(program.directory);
+		console.log('delete all other files');
 	}
 }
