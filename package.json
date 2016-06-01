@@ -2,9 +2,9 @@
   "name": "video-handler",
   "version": "0.1.0",
   "description": "process the video files listed, identify and move them",
-  "main": "index.js",
+  "main": "main.js",
   "bin": {
-    "video-handler": "bin/handler.js"
+    "video-handler": "main.js"
   },
   "preferGlobal": "true",
   "scripts": {
