@@ -3,7 +3,7 @@
 var FileSystem 	= require('fs');
 
 var program	= require('commander');
-var lib 	= require('../index.js');
+var lib 	= require('../lib/identifier.js');
 
 function existDirectory(path) {
 	try {
