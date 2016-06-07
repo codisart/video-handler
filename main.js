@@ -6,6 +6,7 @@ var program		= require('commander');
 var lib 		= require('./lib/identifier.js');
 var mover 		= require('./lib/mover.js');
 var coercion 	= require('./lib/coercion.js');
+var logger 		= require('./lib/logger.js');
 
 program
 	.version('0.0.2')
@@ -16,20 +17,20 @@ program
 
 
 if(!program.kind) {
-	console.log('Error: We need to know the kind of the downloaded torrent');
+	logger.error('We need to know the kind of the downloaded torrent');
 	process.exit(1);
 }
 
 if (program.kind === 'single') {
-	var errorMessage = 'Error: The file is not valid; neither a video nor a subtitle.';
+	var errorMessage = 'The file is not valid; neither a video nor a subtitle.';
 	var files = program.file;
 } else if (program.kind === 'multi') {
-	var errorMessage = 'Error: The directory is not valid; do not exist or do not contains valid files.';
+	var errorMessage = 'The directory is not valid; do not exist or do not contains valid files.';
 	var files = program.directory;
 }
 
 if(!files || files.length <= 0) {
-	console.log(errorMessage);
+	logger.error(errorMessage);
 	process.exit(1);
 }
 
@@ -40,7 +41,7 @@ for (var index in files) {
 	var episode = lib.identifyEpisode(filePath);
 
 	if (!episode) {
-		console.log('Error: We could not identify this file. - ' + filePath);
+		logger.info('We could not identify this file. - ' + filePath);
 		continue;
 	}
 
@@ -50,5 +51,5 @@ for (var index in files) {
 
 if (wasAtLeastOneFileProcessed) {
 	// TODO: implements the clear action
-	console.log('Tmp: We can delete all the downloaded files.');
+	logger.info('We can delete all the downloaded files.');
 }
