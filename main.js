@@ -4,7 +4,7 @@ var FileSystem 	= require('fs');
 
 var program		= require('commander');
 var lib 		= require('./lib/identifier.js');
-var mover 		= require('./lib/mover.js');
+var Mover 		= require('./lib/mover.js');
 var coercion 	= require('./lib/coercion.js');
 var logger 		= require('./lib/logger.js');
 
@@ -14,7 +14,6 @@ program
 	.option('-D, --directory <n>', 'An valid directory path', coercion.getValidFilesListFromDirectory, false)
 	.option('-F, --file <n>', 'An valid file path', coercion.getValidFilesListFromFile, false)
 	.parse(process.argv);
-
 
 if(!program.kind) {
 	logger.error('We need to know the kind of the downloaded torrent');
@@ -33,6 +32,8 @@ if(!files || files.length <= 0) {
 	logger.error(errorMessage);
 	process.exit(1);
 }
+
+var mover = new Mover('config');
 
 var wasAtLeastOneFileProcessed = false;
 for (var index in files) {
