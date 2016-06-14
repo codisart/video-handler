@@ -23,9 +23,11 @@ if(!program.kind) {
 if (program.kind === 'single') {
 	var errorMessage = 'The file is not valid; neither a video nor a subtitle.';
 	var files = program.file;
+	var srcDirectory = '.';
 } else if (program.kind === 'multi') {
 	var errorMessage = 'The directory is not valid; do not exist or do not contains valid files.';
-	var files = program.directory;
+	var files = program.directory.files;
+	var srcDirectory = program.directory.path;
 }
 
 if(!files || files.length <= 0) {
@@ -33,7 +35,7 @@ if(!files || files.length <= 0) {
 	process.exit(1);
 }
 
-var mover = new Mover('config');
+var mover = new Mover('config', srcDirectory);
 
 var wasAtLeastOneFileProcessed = false;
 for (var index in files) {

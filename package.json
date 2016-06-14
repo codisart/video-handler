@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/codisart/video-handler#readme",
   "dependencies": {
-    "commander": "^2.9.0"
+    "commander": "^2.9.0",
+    "mkdirp": "^0.5.1"
   }
 }
