@@ -35,7 +35,12 @@ if(!files || files.length <= 0) {
 	process.exit(1);
 }
 
-var mover = new Mover('config', srcDirectory);
+var mover = new Mover({
+	destinationDirectory 	: '/var/www/video-handler/dest/',
+	showDirectory 			: '{show-title}',
+	seasonDirectory 		: 'saison {season-number:00}',
+	episodeName 			: '{show-title} S{season-number:00} E{episode-number:00}',
+}, srcDirectory);
 
 var wasAtLeastOneFileProcessed = false;
 for (var index in files) {
