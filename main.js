@@ -21,13 +21,13 @@ if(!program.kind) {
 }
 
 if (program.kind === 'single') {
-	var errorMessage = 'The file is not valid; neither a video nor a subtitle.';
-	var files = program.file;
-	var srcDirectory = '.';
+	var files			= program.file;
+	var errorMessage 	= 'The file is not valid; neither a video nor a subtitle.';
+	var srcDirectory 	= '.';
 } else if (program.kind === 'multi') {
-	var errorMessage = 'The directory is not valid; do not exist or do not contains valid files.';
-	var files = program.directory.files;
-	var srcDirectory = program.directory.path;
+	var files			= program.directory.files;
+	var errorMessage 	= 'The directory is not valid; do not exist or do not contains valid files.';
+	var srcDirectory 	= program.directory.path;
 }
 
 if(!files || files.length <= 0) {
@@ -35,12 +35,8 @@ if(!files || files.length <= 0) {
 	process.exit(1);
 }
 
-var mover = new Mover({
-	destinationDirectory 	: '/var/www/video-handler/dest/',
-	showDirectory 			: '{show-title}',
-	seasonDirectory 		: 'saison {season-number:00}',
-	episodeName 			: '{show-title} S{season-number:00} E{episode-number:00}',
-}, srcDirectory);
+var config = require('./config.json');
+var mover = new Mover(config, srcDirectory);
 
 var wasAtLeastOneFileProcessed = false;
 for (var index in files) {

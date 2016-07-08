@@ -1,5 +1,6 @@
 {
-	"destinationDirectory"	: "/var/www/video-handler/dest/",
+	"destinationDirectory"	: "/var/www/video-handler/destSecond/",
+
 	"showDirectory"			: "{show-title}",
 	"seasonDirectory"		: "saison {season-number:00}",
 	"episodeName"			: "{show-title} S{season-number:00} E{episode-number:00}"
