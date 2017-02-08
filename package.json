@@ -8,7 +8,7 @@
   },
   "preferGlobal": "true",
   "scripts": {
-    "install" : "script/install.js",
+    "postinstall" : "node ./script/install.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

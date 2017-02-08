@@ -1,0 +1,105 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/local/bin/npm', 'install', '-g', '.' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose install initial load of /usr/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/lib/package.json
+6 silly cache add args [ '.', null ]
+7 verbose cache add spec .
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: '.',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: '.',
+8 silly cache add   spec: '/var/www/video-handler',
+8 silly cache add   type: 'directory' }
+9 verbose addLocalDirectory /users/louis.celier/.npm/video-handler/0.1.0/package.tgz not in flight; packing
+10 verbose correctMkdir /users/louis.celier/.npm correctMkdir not in flight; initializing
+11 verbose tar pack [ '/users/louis.celier/.npm/video-handler/0.1.0/package.tgz',
+11 verbose tar pack   '/var/www/video-handler' ]
+12 verbose tarball /users/louis.celier/.npm/video-handler/0.1.0/package.tgz
+13 verbose folder /var/www/video-handler
+14 info prepublish video-handler@0.1.0
+15 verbose addLocalTarball adding from inside cache /users/louis.celier/.npm/video-handler/0.1.0/package.tgz
+16 verbose correctMkdir /users/louis.celier/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd video-handler@0.1.0
+18 verbose afterAdd /users/louis.celier/.npm/video-handler/0.1.0/package/package.json not in flight; writing
+19 verbose correctMkdir /users/louis.celier/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /users/louis.celier/.npm/video-handler/0.1.0/package/package.json written
+21 silly install resolved [ { name: 'video-handler',
+21 silly install resolved     version: '0.1.0',
+21 silly install resolved     description: 'process the video files listed, identify and move them',
+21 silly install resolved     main: 'main.js',
+21 silly install resolved     bin: { 'video-handler': 'main.js' },
+21 silly install resolved     preferGlobal: 'true',
+21 silly install resolved     scripts:
+21 silly install resolved      { postinstall: 'node ./script/install.js',
+21 silly install resolved        test: 'echo "Error: no test specified" && exit 1' },
+21 silly install resolved     repository:
+21 silly install resolved      { type: 'git',
+21 silly install resolved        url: 'git+https://github.com/codisart/video-handler.git' },
+21 silly install resolved     keywords: [ 'post', 'processing' ],
+21 silly install resolved     author: { name: 'codisart' },
+21 silly install resolved     license: 'MIT',
+21 silly install resolved     bugs: { url: 'https://github.com/codisart/video-handler/issues' },
+21 silly install resolved     homepage: 'https://github.com/codisart/video-handler#readme',
+21 silly install resolved     dependencies: { commander: '^2.9.0', mkdirp: '^0.5.1' },
+21 silly install resolved     readme: '# video-handler\n\nListe des parametres pour µTorrent\n\n\t  %F - Name of downloaded file (for single file torrents)\n\t  %D - Directory where files are saved\n\t  %N - Title of torrent\n\t  %P - Previous state of torrent\n\t  %L - Label\n\t  %T - Tracker\n\t  %M - Status message string (same as status column)\n\t  %I - hex encoded info-hash\n\t  %S - State of torrent\n\t  %K - kind of torrent (single|multi)\n',
+21 silly install resolved     readmeFilename: 'README.md',
+21 silly install resolved     gitHead: '11a213b2f3e0113ef56a9352dda03bdb84aacf66',
+21 silly install resolved     _id: 'video-handler@0.1.0',
+21 silly install resolved     _shasum: '620c97fad406274572ac07844c822c059c08de64',
+21 silly install resolved     _from: '../var/www/video-handler',
+21 silly install resolved     _resolved: 'file:../var/www/video-handler' } ]
+22 info install video-handler@0.1.0 into /usr/lib
+23 info installOne video-handler@0.1.0
+24 verbose installOne of video-handler to /usr/lib not in flight; installing
+25 verbose correctMkdir /users/louis.celier/.npm/_locks correctMkdir not in flight; initializing
+26 verbose lock using /users/louis.celier/.npm/_locks/video-handler-f9fde6567758241b.lock for /usr/lib/node_modules/video-handler
+27 silly install write writing video-handler 0.1.0 to /usr/lib/node_modules/video-handler
+28 verbose unbuild lib/node_modules/video-handler
+29 silly gentlyRm /usr/lib/node_modules/video-handler is being purged from base /usr
+30 verbose gentlyRm don't care about contents; nuking /usr/lib/node_modules/video-handler
+31 verbose tar unpack /users/louis.celier/.npm/video-handler/0.1.0/package.tgz
+32 verbose tar unpacking to /usr/lib/node_modules/video-handler
+33 silly gentlyRm /usr/lib/node_modules/video-handler is being purged
+34 verbose gentlyRm don't care about contents; nuking /usr/lib/node_modules/video-handler
+35 silly gunzTarPerm modes [ '755', '644' ]
+36 error tar.unpack untar error /users/louis.celier/.npm/video-handler/0.1.0/package.tgz
+37 verbose unlock done using /users/louis.celier/.npm/_locks/video-handler-f9fde6567758241b.lock for /usr/lib/node_modules/video-handler
+38 verbose fstream_path /usr/lib/node_modules/video-handler
+39 verbose fstream_type Directory
+40 verbose fstream_class DirWriter
+41 verbose stack Error: EACCES: permission denied, mkdir '/usr/lib/node_modules'
+41 verbose stack     at Error (native)
+42 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/writer.js:171:25
+42 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53
+42 verbose fstream_stack FSReqWrap.oncomplete (fs.js:82:15)
+43 verbose cwd /var/www/video-handler
+44 error Linux 3.19.0-31-generic
+45 error argv "/usr/bin/nodejs" "/usr/local/bin/npm" "install" "-g" "."
+46 error node v4.4.7
+47 error npm  v2.15.8
+48 error path /usr/lib/node_modules
+49 error code EACCES
+50 error errno -13
+51 error syscall mkdir
+52 error Error: EACCES: permission denied, mkdir '/usr/lib/node_modules'
+52 error     at Error (native)
+52 error  { [Error: EACCES: permission denied, mkdir '/usr/lib/node_modules']
+52 error   errno: -13,
+52 error   code: 'EACCES',
+52 error   syscall: 'mkdir',
+52 error   path: '/usr/lib/node_modules',
+52 error   fstream_type: 'Directory',
+52 error   fstream_path: '/usr/lib/node_modules/video-handler',
+52 error   fstream_class: 'DirWriter',
+52 error   fstream_stack:
+52 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/writer.js:171:25',
+52 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53',
+52 error      'FSReqWrap.oncomplete (fs.js:82:15)' ] }
+53 error Please try running this command again as root/Administrator.
+54 verbose exit [ -13, true ]
+55 verbose unbuild lib/node_modules/video-handler
+56 silly gentlyRm /usr/lib/node_modules/video-handler is being purged from base /usr
+57 verbose gentlyRm don't care about contents; nuking /usr/lib/node_modules/video-handler
